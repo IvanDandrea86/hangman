@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Mono:wght@500&display=swap');
+$primary :wheat;
+$secondary:#333;
+body {
+    background-color: $primary;
+    margin: 15px;
+    font-family: 'Noto Sans Mono', monospace;
+    h1 {
+        font-size: 3em;
+    }
+}
+
+button {
+    align-self: center;
+    width: fit-content;
+}
+
+.fab {
+    color: $secondary;
+}
+
+.top_bar {
+    padding-top: 5px;
+    display: flex;
+    justify-content: space-around;
+    overflow: hidden;
+    background-color: $secondary;
+    // position: fixed;
+    // top: 0;
+    // width: 100%;
+    p {
+        color: $primary;
+    }
+    .score_container {
+        padding: 2.5px;
+        margin: 2.5px;
+        p {
+            font-size: 12px;
+            display: inline-block;
+        }
+        span {
+            margin-left: 5px;
+            display: inline-block;
+            color: $primary;
+        }
+    }
+}
+
+#icon_logo {
+    border-radius: 60%;
+    width: 1em;
+    height: 1em;
+    border: 1px solid $primary;
+    &:before {
+        border-radius: 60%;
+        width: 2em;
+        height: 2em;
+        border: 2px solid $primary;
+    }
+    &:after {
+        border-radius: 60%;
+        width: 0.5em;
+        height: 0.5em;
+        border: 5px dotted $primary;
+    }
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    #enter_game {
+        padding: 50px;
+        margin: 50px;
+        display: flex;
+        flex-direction: column;
+        h1,
+        h2 {
+            margin: 5px;
+            text-align: center;
+        }
+    }
+    #main_game {
+        display: none;
+    }
+    #footer {
+        display: flex;
+        justify-content: space-around;
+        #social {
+            li {
+                display: inline;
+            }
+        }
+    }
+}

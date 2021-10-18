@@ -1,0 +1,119 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+Mono:wght@500&display=swap");
+body {
+  background-color: wheat;
+  margin: 15px;
+  font-family: 'Noto Sans Mono', monospace;
+}
+
+body h1 {
+  font-size: 3em;
+}
+
+button {
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
+.fab {
+  color: #333;
+}
+
+.top_bar {
+  padding-top: 5px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  overflow: hidden;
+  background-color: #333;
+}
+
+.top_bar p {
+  color: wheat;
+}
+
+.top_bar .score_container {
+  padding: 2.5px;
+  margin: 2.5px;
+}
+
+.top_bar .score_container p {
+  font-size: 12px;
+  display: inline-block;
+}
+
+.top_bar .score_container span {
+  margin-left: 5px;
+  display: inline-block;
+  color: wheat;
+}
+
+#icon_logo {
+  border-radius: 60%;
+  width: 1em;
+  height: 1em;
+  border: 1px solid wheat;
+}
+
+#icon_logo:before {
+  border-radius: 60%;
+  width: 2em;
+  height: 2em;
+  border: 2px solid wheat;
+}
+
+#icon_logo:after {
+  border-radius: 60%;
+  width: 0.5em;
+  height: 0.5em;
+  border: 5px dotted wheat;
+}
+
+.container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.container #enter_game {
+  padding: 50px;
+  margin: 50px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.container #enter_game h1,
+.container #enter_game h2 {
+  margin: 5px;
+  text-align: center;
+}
+
+.container #main_game {
+  display: none;
+}
+
+.container #footer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.container #footer #social li {
+  display: inline;
+}
+/*# sourceMappingURL=style.css.map */
