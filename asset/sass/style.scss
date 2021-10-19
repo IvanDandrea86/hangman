@@ -21,13 +21,13 @@ button {
     font-family: 'Noto Sans Mono', monospace;
 }
 
+#start_button {
+    font-size: 24px;
+}
+
 .letters {
     font-size: 24px;
     margin: 2.5px;
-}
-
-.fab {
-    color: $secondary;
 }
 
 .top_bar {
@@ -80,20 +80,19 @@ button {
 .container {
     display: flex;
     justify-content: center;
+    //Enter the game elements
     #enter_game {
-        padding: 50px;
-        margin: 50px;
+        height: 70vh;
+        width: 80%;
         display: flex;
         flex-direction: column;
+        text-align: center;
         h1,
         h2 {
-            margin: 5px;
-            text-align: center;
-        }
-        #back {
-            align-self: baseline;
+            margin-bottom: 0.5em;
         }
     }
+    //Main game elements
     #main_game {
         margin-left: 10px;
         margin-right: 10px;
@@ -102,20 +101,24 @@ button {
         width: 80%;
         display: none;
         #game_end_title {
+            margin: 12px;
             font-size: 36px;
         }
         #image_hangman {
-            img {
-                max-width: 100%;
-                max-height: 80%;
+            max-width: 100%;
+            max-height: 100%;
+            #hang {
+                padding: 5px;
             }
         }
         #secret_word {
             display: flex;
             justify-content: center;
             margin-top: 2em;
+            margin-left: 2em;
+            margin-right: 2em;
             .sec_word {
-                margin-right: 25px;
+                margin-right: 0.5em;
                 border-bottom: 2px solid $secondary;
                 font-size: 32px;
                 text-transform: uppercase;
@@ -128,20 +131,21 @@ button {
             justify-content: center;
             flex-wrap: wrap;
         }
-    }
-    #footer {
-        display: flex;
-        justify-content: space-around;
-        #social {
-            li {
-                display: inline;
-            }
+        #nav_container {
+            justify-content: space-between;
+            #back {}
+            #again {}
         }
     }
-    footer {
-        clear: both;
-        position: relative;
-        height: 200px;
-        margin-top: -200px;
+}
+
+#footer {
+    display: flex;
+    justify-content: space-around;
+    font-size: 18px;
+    text-align: center;
+    .fab {
+        color: $secondary;
+        font-size: 32px;
     }
 }

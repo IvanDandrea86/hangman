@@ -88,15 +88,16 @@
     })
 
     let runHangman = () => {
-
+        var score
+        var count = 0
+        var w = 0
 
         console.log("It Works Hangman Started")
         createMain()
         const hang = generateRandomWord(vocab)
         console.log(hang)
         generateKeybord(alpha)
-        var count = 0
-        var w = 0
+
         Array.from(document.querySelectorAll("button.letters")).forEach(btn =>
             btn.addEventListener(
                 "click",
@@ -111,24 +112,30 @@
                         console.log("You lost one try")
                         count = loseTray(count)
                         console.log("lost counter:", count)
-                        if (isLost(count)) { youLost() }
+                        if (isLost(count)) {
+                            youLost()
+                            showTheSecret(hang.length)
+                        }
                     } else {
                         for (elem in found) {
                             getLetter(found[elem])
                             console.log("Congratulation you the letter" + found[elem])
+
                             document.getElementById("let-" + char).disabled = true;
                             w++
                             console.log("win counter:", w)
                             if (isWin(w, (hang.length))) { youWin() }
                         }
-
+                        let t = document.getElementById("try_result").innerHTML
+                        score = +(len * 12) - t
+                        document.getElementById("score_result").innerHTML = score
                     }
 
                 })
         )
     }
     let youWin = () => {
-        document.getElementById("game_end_title").firstChild.textContent = "YOU WIN"
+        document.querySelector("#game_end_title h2").textContent = "YOU WIN"
         console.log("You win")
     }
     let youLost = () => {
@@ -139,12 +146,35 @@
         document.getElementById("game_end_title").firstChild.textContent = "YOU LOST";
         console.log("You Lost");
     }
+    let showTheSecret = ((index) => {
+        for (i = 0; i < index; i++) {
+            getLetter(i)
+        }
+
+    })
 
     let resetGame = () => {
-            console.log("reset")
-            document.getElementById("enter_game").removeAttribute("style")
+        console.log("exit")
+        document.getElementById("try_result").innerHTML = 0
+        document.getElementById("score_result").innerHTML = 0
+        document.getElementById("enter_game").removeAttribute("style")
+        const parentNode = document.getElementById("main_game")
+        document.getElementById("main_game").removeAttribute("style")
+        parentNode.children[0].textContent = ""
+        parentNode.children[1].textContent = ""
+        parentNode.children[2].textContent = ""
+        parentNode.children[3].textContent = ""
+        const key = document.getElementById("keybord")
+        while (key.lastElementChild) {
+            key.removeChild(key.lastElementChild);
+        }
+        parentNode.style.display = "none"
+    }
+    let again = () => {
+            console.log("again")
+            document.getElementById("try_result").innerHTML = 0
+            document.getElementById("score_result").innerHTML = 0
             const parentNode = document.getElementById("main_game")
-            document.getElementById("main_game").removeAttribute("style")
             parentNode.children[0].textContent = ""
             parentNode.children[1].textContent = ""
             parentNode.children[2].textContent = ""
@@ -153,7 +183,8 @@
             while (key.lastElementChild) {
                 key.removeChild(key.lastElementChild);
             }
-            parentNode.style.display = "none"
+            runHangman()
+
         }
         /*----------------
                Main
@@ -165,6 +196,10 @@
     document.getElementById("back").addEventListener("click", () => {
         resetGame()
         console.log("restart")
+    })
+    document.getElementById("again").addEventListener("click", () => {
+        again()
+        console.log("again")
     })
 
 

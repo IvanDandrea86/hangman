@@ -25,13 +25,13 @@ button {
   font-family: 'Noto Sans Mono', monospace;
 }
 
+#start_button {
+  font-size: 24px;
+}
+
 .letters {
   font-size: 24px;
   margin: 2.5px;
-}
-
-.fab {
-  color: #333;
 }
 
 .top_bar {
@@ -103,8 +103,8 @@ button {
 }
 
 .container #enter_game {
-  padding: 50px;
-  margin: 50px;
+  height: 70vh;
+  width: 80%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -112,17 +112,12 @@ button {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  text-align: center;
 }
 
 .container #enter_game h1,
 .container #enter_game h2 {
-  margin: 5px;
-  text-align: center;
-}
-
-.container #enter_game #back {
-  -ms-flex-item-align: baseline;
-      align-self: baseline;
+  margin-bottom: 0.5em;
 }
 
 .container #main_game {
@@ -135,12 +130,17 @@ button {
 }
 
 .container #main_game #game_end_title {
+  margin: 12px;
   font-size: 36px;
 }
 
-.container #main_game #image_hangman img {
+.container #main_game #image_hangman {
   max-width: 100%;
-  max-height: 80%;
+  max-height: 100%;
+}
+
+.container #main_game #image_hangman #hang {
+  padding: 5px;
 }
 
 .container #main_game #secret_word {
@@ -151,10 +151,12 @@ button {
       -ms-flex-pack: center;
           justify-content: center;
   margin-top: 2em;
+  margin-left: 2em;
+  margin-right: 2em;
 }
 
 .container #main_game #secret_word .sec_word {
-  margin-right: 25px;
+  margin-right: 0.5em;
   border-bottom: 2px solid #333;
   font-size: 32px;
   text-transform: uppercase;
@@ -173,22 +175,24 @@ button {
       flex-wrap: wrap;
 }
 
-.container #footer {
+.container #main_game #nav_container {
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+#footer {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -ms-flex-pack: distribute;
       justify-content: space-around;
+  font-size: 18px;
+  text-align: center;
 }
 
-.container #footer #social li {
-  display: inline;
-}
-
-.container footer {
-  clear: both;
-  position: relative;
-  height: 200px;
-  margin-top: -200px;
+#footer .fab {
+  color: #333;
+  font-size: 32px;
 }
 /*# sourceMappingURL=style.css.map */
