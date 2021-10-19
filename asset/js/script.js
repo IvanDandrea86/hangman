@@ -143,7 +143,7 @@
         keys.forEach(elem => elem.disabled = true)
 
 
-        document.getElementById("game_end_title").firstChild.textContent = "YOU LOST";
+        document.querySelector("#game_end_title h2").textContent = "YOU LOST";
         console.log("You Lost");
     }
     let showTheSecret = ((index) => {
@@ -160,7 +160,9 @@
         document.getElementById("enter_game").removeAttribute("style")
         const parentNode = document.getElementById("main_game")
         document.getElementById("main_game").removeAttribute("style")
-        parentNode.children[0].textContent = ""
+        const title=document.getElementById("won")
+        title.innerHTML=""
+        console.log("target :"+title)
         parentNode.children[1].textContent = ""
         parentNode.children[2].textContent = ""
         parentNode.children[3].textContent = ""
@@ -175,7 +177,9 @@
             document.getElementById("try_result").innerHTML = 0
             document.getElementById("score_result").innerHTML = 0
             const parentNode = document.getElementById("main_game")
-            parentNode.children[0].textContent = ""
+            const title=document.getElementById("won")
+            title.innerHTML=""
+            console.log("title :"+title)
             parentNode.children[1].textContent = ""
             parentNode.children[2].textContent = ""
             parentNode.children[3].textContent = ""
