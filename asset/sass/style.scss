@@ -97,7 +97,7 @@ button {
         margin-left: 10px;
         margin-right: 10px;
         margin-top: 25px;
-        height: 70vh;
+        height: 70%;
         width: 75%;
         display: none;
         #game_end_title {
@@ -105,8 +105,8 @@ button {
             font-size: 36px;
         }
         #image_hangman {
-            max-width: 80%;
-            max-height: 80%;
+            max-width: 100%;
+            max-height: 100%;
             #hang {
                 padding: 5px;
             }
@@ -139,13 +139,15 @@ button {
     }
 }
 
-#footer {
+.footer {
+    margin-top: 15px;
     display: flex;
     justify-content: space-around;
     font-size: 18px;
     text-align: center;
-    .fab {
-        color: $secondary;
-        font-size: 32px;
-    }
+}
+
+.fab {
+    color: $secondary;
+    font-size: 32px;
 }
