@@ -11,8 +11,19 @@ body {
 }
 
 button {
-    align-self: center;
     width: fit-content;
+    align-self: center;
+    margin-top: 20px;
+    text-transform: uppercase;
+    background-color: $primary;
+    border-radius: 5px;
+    box-shadow: 1px 1px 1px 1px $secondary;
+    font-family: 'Noto Sans Mono', monospace;
+}
+
+.letters {
+    font-size: 24px;
+    margin: 2.5px;
 }
 
 .fab {
@@ -20,16 +31,15 @@ button {
 }
 
 .top_bar {
-    padding-top: 5px;
     display: flex;
     justify-content: space-around;
     overflow: hidden;
     background-color: $secondary;
-    // position: fixed;
-    // top: 0;
-    // width: 100%;
     p {
         color: $primary;
+    }
+    #game_title {
+        align-self: center;
     }
     .score_container {
         padding: 2.5px;
@@ -47,9 +57,11 @@ button {
 }
 
 #icon_logo {
+    margin-top: 5px;
+    margin-bottom: 5px;
     border-radius: 60%;
-    width: 1em;
-    height: 1em;
+    width: 2em;
+    height: 2em;
     border: 1px solid $primary;
     &:before {
         border-radius: 60%;
@@ -78,9 +90,40 @@ button {
             margin: 5px;
             text-align: center;
         }
+        #back {
+            align-self: baseline;
+        }
     }
     #main_game {
+        margin-top: 25px;
+        height: 80vh;
+        width: 80%;
         display: none;
+        #game_end_title {
+            font-size: 36px;
+        }
+        #image_hangman {
+            img {
+                max-width: 100%;
+                max-height: 80%;
+            }
+        }
+        #secret_word {
+            margin-top: 2em;
+            .sec_word {
+                margin-right: 25px;
+                border-bottom: 2px solid $secondary;
+                font-size: 32px;
+                text-transform: uppercase;
+                color: $primary;
+            }
+        }
+        #keybord {
+            margin-top: 2em;
+            display: inline-flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
     }
     #footer {
         display: flex;
@@ -90,5 +133,11 @@ button {
                 display: inline;
             }
         }
+    }
+    footer {
+        clear: both;
+        position: relative;
+        height: 200px;
+        margin-top: -200px;
     }
 }

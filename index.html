@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hangman - The Game</title>
+    <title>Hangman v0.1 - The Game</title>
     <link rel="stylesheet" href="./asset/css/style.css">
     <link rel="stylesheet" href="./asset/css/reset.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
@@ -15,10 +15,12 @@
     <header>
         <nav>
             <div class="top_bar">
-                <a href="#">
-                    <div class="logo" id="icon_logo"></div>
-                </a>
-                <p id="game_title">The Hangman</p>
+
+                <div class="logo" id="icon_logo">
+                    <a href="#"></a>
+                </div>
+
+                <p id="game_title">The Hangman v0.1</p>
                 <div class="score_container">
                     <div id="try">
                         <p>Number or guess: </p><span id="try_result">0</span>
@@ -34,15 +36,23 @@
         <div class="container" id="enter_game">
             <h1 id="main_title">The Hangman</h1>
             <h2>Try to chatch the word</h2>
-            <button id="start_game">Star the game</button>
+            <button id="start_button">Star the game</button>
         </div>
         <div class="container" id="main_game">
-            <div class="container" id="image_hangman"> <img src="./asset/img/hmframes/Hangman_1.png" alt=""> </div>
-            <div class="container">
-                <p id="secret_word"></p>
+            <div class="container" id="game_end_title">
+                <h2></h2>
+            </div>
+            <div class="container" id="image_hangman">
+
+            </div>
+            <div class="container" id="secret_word">
+
             </div>
             <div class="container" id="keybord"></div>
+            <button id="back">Reset</button>
         </div>
+
+
     </section>
 
     <footer class="container ">
@@ -64,6 +74,7 @@
     </footer>
 
     <script src="./asset/js/script.js"></script>
+
 </body>
 
 </html>

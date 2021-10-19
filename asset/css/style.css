@@ -10,12 +10,24 @@ body h1 {
 }
 
 button {
-  -ms-flex-item-align: center;
-      -ms-grid-row-align: center;
-      align-self: center;
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  margin-top: 20px;
+  text-transform: uppercase;
+  background-color: wheat;
+  border-radius: 5px;
+  -webkit-box-shadow: 1px 1px 1px 1px #333;
+          box-shadow: 1px 1px 1px 1px #333;
+  font-family: 'Noto Sans Mono', monospace;
+}
+
+.letters {
+  font-size: 24px;
+  margin: 2.5px;
 }
 
 .fab {
@@ -23,7 +35,6 @@ button {
 }
 
 .top_bar {
-  padding-top: 5px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -35,6 +46,12 @@ button {
 
 .top_bar p {
   color: wheat;
+}
+
+.top_bar #game_title {
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
 }
 
 .top_bar .score_container {
@@ -54,9 +71,11 @@ button {
 }
 
 #icon_logo {
+  margin-top: 5px;
+  margin-bottom: 5px;
   border-radius: 60%;
-  width: 1em;
-  height: 1em;
+  width: 2em;
+  height: 2em;
   border: 1px solid wheat;
 }
 
@@ -101,8 +120,49 @@ button {
   text-align: center;
 }
 
+.container #enter_game #back {
+  -ms-flex-item-align: baseline;
+      align-self: baseline;
+}
+
 .container #main_game {
+  margin-top: 25px;
+  height: 80vh;
+  width: 80%;
   display: none;
+}
+
+.container #main_game #game_end_title {
+  font-size: 36px;
+}
+
+.container #main_game #image_hangman img {
+  max-width: 100%;
+  max-height: 80%;
+}
+
+.container #main_game #secret_word {
+  margin-top: 2em;
+}
+
+.container #main_game #secret_word .sec_word {
+  margin-right: 25px;
+  border-bottom: 2px solid #333;
+  font-size: 32px;
+  text-transform: uppercase;
+  color: wheat;
+}
+
+.container #main_game #keybord {
+  margin-top: 2em;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
 }
 
 .container #footer {
@@ -115,5 +175,12 @@ button {
 
 .container #footer #social li {
   display: inline;
+}
+
+.container footer {
+  clear: both;
+  position: relative;
+  height: 200px;
+  margin-top: -200px;
 }
 /*# sourceMappingURL=style.css.map */
