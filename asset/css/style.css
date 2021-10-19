@@ -126,6 +126,8 @@ button {
 }
 
 .container #main_game {
+  margin-left: 10px;
+  margin-right: 10px;
   margin-top: 25px;
   height: 80vh;
   width: 80%;
@@ -142,6 +144,12 @@ button {
 }
 
 .container #main_game #secret_word {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   margin-top: 2em;
 }
 
