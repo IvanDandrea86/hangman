@@ -63,18 +63,7 @@ button {
     width: 2em;
     height: 2em;
     border: 1px solid $primary;
-    &:before {
-        border-radius: 60%;
-        width: 2em;
-        height: 2em;
-        border: 2px solid $primary;
-    }
-    &:after {
-        border-radius: 60%;
-        width: 0.5em;
-        height: 0.5em;
-        border: 5px dotted $primary;
-    }
+    align-self: center;
 }
 
 .container {
@@ -97,18 +86,21 @@ button {
         margin-left: 10px;
         margin-right: 10px;
         margin-top: 25px;
-        height: 70%;
-        width: 75%;
+        height: 60%;
+        width: 85%;
         display: none;
         #game_end_title {
             margin: 12px;
             font-size: 36px;
         }
         #image_hangman {
-            max-width: 100%;
-            max-height: 100%;
+            border: 1px solid $secondary;
+            height :35vh;
+            
             #hang {
                 padding: 5px;
+                max-width: 100%;
+                max-height: 100%;
             }
         }
         #secret_word {
@@ -126,19 +118,20 @@ button {
             }
         }
         #keybord {
-            margin-top: 2em;
+            margin-top: 1em;
             display: inline-flex;
             justify-content: center;
             flex-wrap: wrap;
         }
         #nav_container {
-            justify-content: space-between;
-            #back {}
-            #again {}
+            justify-content: space-around;
+            font-size: 1em;
+            padding-bottom: 10%;
+            padding-top:5%;
+            
         }
     }
 }
-
 .footer {
     margin-top: 15px;
     display: flex;
@@ -146,7 +139,6 @@ button {
     font-size: 18px;
     text-align: center;
 }
-
 .fab {
     color: $secondary;
     font-size: 32px;

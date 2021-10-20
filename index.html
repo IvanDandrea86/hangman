@@ -5,39 +5,45 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hangman v1.03 - The Game</title>
+    <title>Hangman v1.05 - The Game</title>
+    <link rel="shortcut icon" href="./asset/img/hmframes/hang_7.png">
+
     <link rel="stylesheet" href="./asset/css/style.css">
     <link rel="stylesheet" href="./asset/css/reset.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
 </head>
-
 <body>
+
+    <!-- Header Section With Logo Title and Score Notation -->
     <header>
         <nav>
             <div class="top_bar">
-
                 <div class="logo" id="icon_logo">
                     <a href="#"></a>
                 </div>
-
-                <p id="game_title">The Hangman v1.03</p>
+                <p id="game_title">The Hangman v1.05</p>
                 <div class="score_container">
                     <div id="try">
                         <p>Number or guess: </p><span id="try_result">0</span>
                     </div>
                     <div id="score">
-                        <p>Best Score :</p><span id="score_result">0</span>
+                        <p>Score :</p><span id="score_result">0</span>
+                    </div>
+                    <div id="best">
+                        <p>Best Score :</p><span id="best_result">0</span>
                     </div>
                 </div>
             </div>
         </nav>
     </header>
+    <!-- Welcome Page Section to Enter the Game -->
     <section class="container">
         <div class="container" id="enter_game">
             <h1 id="main_title">The Hangman</h1>
             <h2>Try to chatch the word</h2>
             <button id="start_button">Star the game</button>
         </div>
+    <!-- Main Game Section -->
         <div class="container" id="main_game">
             <div class="container" id="game_end_title">
                 <h2 id="won"></h2>
@@ -51,26 +57,12 @@
                 <button id="back">Exit</button>
                 <button id="again">Again</button>
             </div>
-
         </div>
-
-
     </section>
-
     <footer class="footer">
-
-
         <p>Ivan D'Andrea 2021</p>
-
-
-
         <a href="https://github.com/IvanDandrea86" target="_blank"><i class="fab fa-github"></i></a>
-
-
     </footer>
-
-    <script src="./asset/js/script.js"></script>
-
+<script src="./asset/js/script.js"></script>
 </body>
-
 </html>

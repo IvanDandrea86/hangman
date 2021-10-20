@@ -77,20 +77,9 @@ button {
   width: 2em;
   height: 2em;
   border: 1px solid wheat;
-}
-
-#icon_logo:before {
-  border-radius: 60%;
-  width: 2em;
-  height: 2em;
-  border: 2px solid wheat;
-}
-
-#icon_logo:after {
-  border-radius: 60%;
-  width: 0.5em;
-  height: 0.5em;
-  border: 5px dotted wheat;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
 }
 
 .container {
@@ -124,8 +113,8 @@ button {
   margin-left: 10px;
   margin-right: 10px;
   margin-top: 25px;
-  height: 70%;
-  width: 75%;
+  height: 60%;
+  width: 85%;
   display: none;
 }
 
@@ -135,12 +124,14 @@ button {
 }
 
 .container #main_game #image_hangman {
-  max-width: 100%;
-  max-height: 100%;
+  border: 1px solid #333;
+  height: 35vh;
 }
 
 .container #main_game #image_hangman #hang {
   padding: 5px;
+  max-width: 100%;
+  max-height: 100%;
 }
 
 .container #main_game #secret_word {
@@ -164,7 +155,7 @@ button {
 }
 
 .container #main_game #keybord {
-  margin-top: 2em;
+  margin-top: 1em;
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
   display: inline-flex;
@@ -176,9 +167,11 @@ button {
 }
 
 .container #main_game #nav_container {
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  font-size: 1em;
+  padding-bottom: 10%;
+  padding-top: 5%;
 }
 
 .footer {
