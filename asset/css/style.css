@@ -1,14 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+Mono:wght@500&display=swap");
-body {
-  background-color: wheat;
-  margin: 15px;
-  font-family: 'Noto Sans Mono', monospace;
-}
-
-body h1 {
-  font-size: 3em;
-}
-
+/*------
+Font size
+-------*/
+/*-------
+Margin & Padding
+--------*/
 button {
   width: -webkit-fit-content;
   width: -moz-fit-content;
@@ -26,14 +22,37 @@ button {
 }
 
 #start_button {
-  font-size: 24px;
+  font-size: 2em;
 }
 
-.letters {
-  font-size: 24px;
+#back {
+  font-size: 1.5em;
+}
+
+#again {
+  font-size: 1.5em;
+}
+
+/*--------
+  General
+--------*/
+body {
+  background-color: wheat;
+  font-family: 'Noto Sans Mono', monospace;
+}
+
+body h1 {
+  font-size: 3em;
+}
+
+body .letters {
+  font-size: 2em;
   margin: 2.5px;
 }
 
+/*--------
+Top Bar
+--------*/
 .top_bar {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -60,19 +79,20 @@ button {
 }
 
 .top_bar .score_container p {
-  font-size: 12px;
+  font-size: 1em;
   display: inline-block;
 }
 
 .top_bar .score_container span {
-  margin-left: 5px;
+  margin-left: 4.5px;
   display: inline-block;
   color: wheat;
+  font-size: 1em;
 }
 
 #icon_logo {
-  margin-top: 5px;
-  margin-bottom: 5px;
+  margin-top: 4.5px;
+  margin-bottom: 4.5px;
   border-radius: 60%;
   width: 2em;
   height: 2em;
@@ -82,6 +102,9 @@ button {
       align-self: center;
 }
 
+/*-----------
+Main Section
+------------*/
 .container {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -92,7 +115,7 @@ button {
 }
 
 .container #enter_game {
-  height: 70vh;
+  height: 60vh;
   width: 80%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -104,9 +127,16 @@ button {
   text-align: center;
 }
 
-.container #enter_game h1,
+.container #enter_game h1 {
+  font-size: 3em;
+  margin-bottom: 3.5px;
+}
+
 .container #enter_game h2 {
-  margin-bottom: 0.5em;
+  font-style: italic;
+  font-size: 1.5em;
+  margin-top: 3.5px;
+  margin-bottom: 4.5px;
 }
 
 .container #main_game {
@@ -128,8 +158,7 @@ button {
   height: 35vh;
 }
 
-.container #main_game #image_hangman #hang {
-  padding: 5px;
+.container #main_game #image_hangman .hang {
   max-width: 100%;
   max-height: 100%;
 }
@@ -149,7 +178,7 @@ button {
 .container #main_game #secret_word .sec_word {
   margin-right: 0.5em;
   border-bottom: 2px solid #333;
-  font-size: 32px;
+  font-size: 3em;
   text-transform: uppercase;
   color: wheat;
 }
@@ -170,23 +199,37 @@ button {
   -ms-flex-pack: distribute;
       justify-content: space-around;
   font-size: 1em;
-  padding-bottom: 10%;
-  padding-top: 5%;
+  padding-bottom: 4.5px;
+  padding-top: 2.5px;
 }
 
+/*-----------
+*Footer section
+------------*/
 .footer {
   margin-top: 15px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   font-size: 18px;
   text-align: center;
 }
 
-.fab {
+.footer p {
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  margin-right: 4.5px;
+}
+
+.footer .fab {
   color: #333;
-  font-size: 32px;
+  font-size: 2em;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
 }
 /*# sourceMappingURL=style.css.map */

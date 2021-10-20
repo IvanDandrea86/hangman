@@ -1,8 +1,20 @@
 (() => {
     const alpha = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
     const vocab = ["console", "javascript", "react", "quiz", "nobody", "asynchronous", "languages","fetch","mammamia","superhero","limitless","panda"]
+    /**
+     * Generate rundom Item.
+     * 
+     * @param {Array} arr - Array of elements
+     * @return {String} - Randome Item from the given array 
+     */
     const getRandomItem = arr => arr[Math.floor(Math.random() * arr.length)];
-    //Generate Random Word
+   
+    /**
+     * Generate random word and create nth span elment for each charachter
+     * 
+     * @param {Array} word - Array of elements
+     * @return {String} - random word
+     */
     let generateRandomWord = (word) => {
         let secret = getRandomItem(word)
         console.log("Random Word Generated")
@@ -17,8 +29,13 @@
         }
         return secret
     }
-    //Generate Keyboard
-    let generateKeybord = ((alphabet) => {
+    /** 
+    * Generate Keyboard creating n buttons html element based on the alphabet lenght
+    * 
+    * @param {Array} alphabet- Array of strings
+    * 
+    */
+    const generateKeybord = ((alphabet) => {
         let head = document.getElementById("keybord")
         for (elem in alphabet) {
             let b = document.createElement("button")
@@ -29,7 +46,9 @@
         }
         console.log("Keybord Generated")
     });
-    // Create main game section
+    /** 
+    * Generate main_game page creating n buttons html element based on the alphabet lenght
+    */
     let createMain = () => {
         let intro = document.getElementById("enter_game")
         intro.style.display = "none";
@@ -38,48 +57,62 @@
         main.style.flexDirection = "column"
         console.log("Main Loaded")
     }
-    // Lose a life function
-    let loseTray = (c) => {
-        let t = document.getElementById("try_result")
-        c++
-        t.innerHTML = c
-        let img
-        let imghead = document.getElementById("image_hangman")
-        if (c == 1) {
-            console.log(c)
-            img = document.createElement("img")
-            img.setAttribute("src", "./asset/img/hmframes/hang_" + c + ".png")
-            img.setAttribute("id", "hang")
-        } else {
-            console.log(c)
-            img = document.getElementById("hang")
-            img.setAttribute("src", "./asset/img/hmframes/hang_" + c + ".png")
-
-        }
-        imghead.appendChild(img)
-        return c
+    /** 
+    * Lose a try modifiy the style og svg
+    * 
+    * @param {Number} counter- counter for the number of try
+    * @returns {Number} - counter for the number of try
+    */
+    let loseTray = (counter) => {
+        counter++
+        const parentNode = document.querySelector("#hang")
+        console.log(parentNode)
+        parentNode.children[counter-1].removeAttribute("display")
+        return counter
+       
     }
-
-    //Showing Letter FUnction
-    let getLetter = ((i) => {
-        let l = document.getElementById("secret-" + i)
-        console.log(l)
+    /** 
+    * Show one letter of the the secret word
+    * changing style.color
+    * @param {Number} index- counter for the number of try
+    *  
+    */
+    let getLetter = ((
+        index) => {
+        let l = document.getElementById("secret-" + index)
         l.style.color = "#000"
-        console.log("Lettra" + i)
-
+        console.log("Lettra" + index)
     })
-
-    //Win Condition
+   
+     /** 
+    * Check win condition pairing win_counter and  word_leght
+    * 
+    * @param {Number} win_counter- counter for the number of try
+    * @param {Number} word_lenght- secret word lenght 
+    * @return {Boolean} -
+    */
     let isWin = ((w_counter, word_lenght) => {
         if (w_counter == word_lenght) return true
         else return false
     })
-    // Lost Condition
-    let isLost = ((c) => {
-        if (c === 6) return true
+     /** 
+    * Check lose condition pairing win_counter and  word_leght
+    * 
+    * @param {Number} counter- counter for the number of try
+    * @return {Boolean} -
+    */
+    let isLost = ((counter) => {
+        if (counter == 6) return true
         else return false
     })
-    //Find element in string custom function
+
+     /** 
+    * Check win condition pairing win_counter and  word_leght
+    * 
+    * @param {String} elem -character to compare
+    * @param {String} string-word to be compaired
+    * @return {Array} result -array of finding charachter
+    */
     let find = ((elem, string) => {
         var results = [];
         var idx = string.indexOf(elem);
@@ -90,26 +123,66 @@
         }
         return results;
     })
+     /** 
+    * Set and show the win meassage
+    */
+    let youWin = () => {
+        document.querySelector("#game_end_title h2").textContent = "YOU WIN"
+        console.log("You win")
+    }
+     /** 
+    * Set and show the lose message
+    */
+    let youLost = () => {
+        const keys = document.querySelectorAll('#keybord button')
+        keys.forEach(elem => elem.disabled = true)
+        document.querySelector("#game_end_title h2").textContent = "YOU LOST";
+        console.log("You Lost");
+    }
+ /** 
+    * Show secret frase wen u lost calling the getLetter() function
+    * 
+    * @param {Number} index -index of the letter to show
+    */
+let showTheSecret = ((index) => {
+    for (let i = 0; i < index; i++) {
+        getLetter(i)
+    }
+})
+ /** 
+    * Check win condition pairing win_counter and  word_leght
+    * 
+    * @param {Numbers} score- actual score
+    * @param {Numbers} new_score- word to be compaired
+    * @return {Numbers} - returning the higher score between the two parametrs
+    */
+let checkBest=((score,new_score)=>{
+    if (new_score >score){
+        window.localStorage.setItem("counter-best-score",new_score)
+        return new_score 
+    }
+    window.localStorage.setItem("counter-best-score",score)
+    return score
+})
 
-
-    //Hangman main game function
+    /** 
+    * Hangman main game 
+    */
     let runHangman = () => {
         var score=0
         var count = 0
         var w = 0
-        
+        var result_tag=document.getElementById("try_result")
+        result_tag.innerHTML=count
         console.log("It Works Hangman Started")
         createMain()
         const hang = generateRandomWord(vocab)
         console.log(hang)
         generateKeybord(alpha)
-
         Array.from(document.querySelectorAll("button.letters")).forEach(btn =>
             btn.addEventListener(
                 "click",
                 () => {
-                    console.log(isWin(w, (hang.length)))
-                    console.log(isLost(count))
                     let char = btn.innerHTML
                     char = char.toLocaleLowerCase()
                     let found = find(char, hang)
@@ -118,6 +191,7 @@
                         console.log("You lost one try")
                         count = loseTray(count)
                         console.log("lost counter:", count)
+                        document.getElementById("try_result").innerHTML = count
                         if (isLost(count)) {
                             youLost()
                             document.getElementById("best_result").innerHTML= checkBest(score, best_score)
@@ -127,7 +201,6 @@
                         for (elem in found) {
                             getLetter(found[elem])
                             console.log("Congratulation you the letter" + found[elem])
-
                             document.getElementById("let-" + char).disabled = true;
                             w++
                             console.log("win counter:", w)
@@ -135,45 +208,18 @@
                                 youWin() 
                             }
                         }
-                        let t = document.getElementById("try_result").innerHTML
+                        let t= try_result.innerHTML
                         score +=  ((len*5) -(t*0.5)) 
                         document.getElementById("score_result").innerHTML = score
                         document.getElementById("best_result").innerHTML= checkBest(score, best_score)
                     }
-
                 })
         )
     }
-
-    // Win and Lose visualization Function
-    let youWin = () => {
-        document.querySelector("#game_end_title h2").textContent = "YOU WIN"
-        console.log("You win")
-    }
-    let youLost = () => {
-        const keys = document.querySelectorAll('#keybord button')
-        keys.forEach(elem => elem.disabled = true)
-        document.querySelector("#game_end_title h2").textContent = "YOU LOST";
-        console.log("You Lost");
-    }
-    //Show secret word function
-    let showTheSecret = ((index) => {
-        for (i = 0; i < index; i++) {
-            getLetter(i)
-        }
-
-    })
-    // Check Best Score Function
-    let checkBest=((s,new_s)=>{
-        if (new_s >s){
-            window.localStorage.setItem("counter-best-score",new_s)
-            return new_s
-            
-        }
-        window.localStorage.setItem("counter-best-score",s)
-        return s
-    })
-    // Reset  function
+    
+    /** 
+    * Reset Exit Function
+    */
     let resetGame = () => {
         console.log("exit")
         document.getElementById("try_result").innerHTML = 0
@@ -193,7 +239,9 @@
         }
         parentNode.style.display = "none"
     }
-    // Play Again function
+    /** 
+    * Play Again function
+    */
     let again = () => {
             console.log("again")
             document.getElementById("try_result").innerHTML = 0
@@ -231,6 +279,5 @@ document.getElementById("again").addEventListener("click", () => {
     again()
     console.log("again")
     })
-
-
 })();
+

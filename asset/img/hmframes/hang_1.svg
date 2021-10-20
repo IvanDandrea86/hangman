@@ -1,0 +1,21 @@
+<svg class="hang" width="500" height="400" viewBox="0 0 500 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+<line id="_base" x1="500" y1="391" x2="-1.4305e-06" y2="391" stroke="black" stroke-width="18"/>
+<line id="left_side" x1="12" y1="-0.000252822" x2="12.008" y2="382" stroke="black" stroke-width="24"/>
+<line id="top_side" x1="393" y1="12" x2="23" y2="12" stroke="black" stroke-width="24"/>
+<line id="support-1" x1="7.7156" y1="105.855" x2="108.716" y2="16.9937" stroke="black" stroke-width="16"/>
+<line id="support-2" x1="385" y1="79" x2="385" stroke="black" stroke-width="16"/>
+<circle id="head" cx="385" cy="108" r="27" stroke="black" stroke-width="6"/>
+<line id="body" x1="386" y1="132" x2="386" y2="225" stroke="black" stroke-width="6"/>
+<line id="left-arm" x1="385.507" y1="139.928" x2="337.298" y2="197.382" stroke="black" stroke-width="6"/>
+<line id="left-arm_2" x1="386.098" y1="219.5" x2="348.598" y2="284.452" stroke="black" stroke-width="6"/>
+<line id="left-arm_3" x1="423.902" y1="284.452" x2="386.402" y2="219.5" stroke="black" stroke-width="6"/>
+<line id="right-arm" x1="434.911" y1="197.382" x2="386.702" y2="139.928" stroke="black" stroke-width="6"/>
+<g id="eye-left">
+<line id="Line 1" x1="366.643" y1="111.999" x2="379.499" y2="96.6786" stroke="black"/>
+<line id="Line" x1="367.383" y1="96.7004" x2="380.239" y2="112.021" stroke="black"/>
+</g>
+<g id="eye-right">
+<line id="Line 1_2" x1="390.643" y1="111.999" x2="403.499" y2="96.6786" stroke="black"/>
+<line id="Line_2" x1="391.383" y1="96.7004" x2="404.239" y2="112.021" stroke="black"/>
+</g>
+</svg>
