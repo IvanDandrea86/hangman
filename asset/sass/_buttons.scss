@@ -12,9 +12,12 @@ button {
     font-size: $normal-text;
 }
 #back{
-    font-size: $medium-text;
+    margin-top:$large-margin;
+    font-size: $medium-text - 0.25em;
 
 }
 #again{
-    font-size: $medium-text;
+    margin-top:$large-margin;
+
+    font-size: $medium-text - 0.25em;
 }

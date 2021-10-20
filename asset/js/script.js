@@ -36,6 +36,7 @@
     * 
     */
     const generateKeybord = ((alphabet) => {
+       
         let head = document.getElementById("keybord")
         for (elem in alphabet) {
             let b = document.createElement("button")
@@ -59,17 +60,15 @@
     }
     /** 
     * Lose a try modifiy the style og svg
-    * 
+    * @param {string} html_elem- parentnode
     * @param {Number} counter- counter for the number of try
     * @returns {Number} - counter for the number of try
     */
-    let loseTray = (counter) => {
+    let loseTray = (html_elem,counter) => {
         counter++
-        const parentNode = document.querySelector("#hang")
-        console.log(parentNode)
-        parentNode.children[counter-1].removeAttribute("display")
-        return counter
-       
+        console.log(html_elem)
+        html_elem[counter-1].removeAttribute("display")
+        return counter 
     }
     /** 
     * Show one letter of the the secret word
@@ -83,7 +82,6 @@
         l.style.color = "#000"
         console.log("Lettra" + index)
     })
-   
      /** 
     * Check win condition pairing win_counter and  word_leght
     * 
@@ -107,7 +105,7 @@
     })
 
      /** 
-    * Check win condition pairing win_counter and  word_leght
+    * Find an element inside a string.
     * 
     * @param {String} elem -character to compare
     * @param {String} string-word to be compaired
@@ -169,6 +167,7 @@ let checkBest=((score,new_score)=>{
     * Hangman main game 
     */
     let runHangman = () => {
+        
         var score=0
         var count = 0
         var w = 0
@@ -189,9 +188,10 @@ let checkBest=((score,new_score)=>{
                     var len = found.length
                     if (len == 0) {
                         console.log("You lost one try")
-                        count = loseTray(count)
+                        let parent =document.querySelectorAll(".svg_selector")
+                        count = loseTray(parent,count)
                         console.log("lost counter:", count)
-                        document.getElementById("try_result").innerHTML = count
+                       result_tag.innerHTML = count
                         if (isLost(count)) {
                             youLost()
                             document.getElementById("best_result").innerHTML= checkBest(score, best_score)
@@ -208,7 +208,7 @@ let checkBest=((score,new_score)=>{
                                 youWin() 
                             }
                         }
-                        let t= try_result.innerHTML
+                        let t= result_tag.innerHTML
                         score +=  ((len*5) -(t*0.5)) 
                         document.getElementById("score_result").innerHTML = score
                         document.getElementById("best_result").innerHTML= checkBest(score, best_score)
@@ -229,14 +229,16 @@ let checkBest=((score,new_score)=>{
         document.getElementById("main_game").removeAttribute("style")
         const title=document.getElementById("won")
         title.innerHTML=""
-        console.log("target :"+title)
-        parentNode.children[1].textContent = ""
         parentNode.children[2].textContent = ""
         parentNode.children[3].textContent = ""
         const key = document.getElementById("keybord")
         while (key.lastElementChild) {
             key.removeChild(key.lastElementChild);
         }
+        html_elem=document.querySelectorAll(".svg_selector")
+        for(let i=1; i< html_elem.length; i++){
+            html_elem[i].setAttribute("display","none")
+            }
         parentNode.style.display = "none"
     }
     /** 
@@ -249,15 +251,17 @@ let checkBest=((score,new_score)=>{
             const parentNode = document.getElementById("main_game")
             const title=document.getElementById("won")
             title.innerHTML=""
-            console.log("title :"+title)
-            parentNode.children[1].textContent = ""
             parentNode.children[2].textContent = ""
             parentNode.children[3].textContent = ""
             const key = document.getElementById("keybord")
             while (key.lastElementChild) {
                 key.removeChild(key.lastElementChild);
             }
-            runHangman()
+            html_elem=document.querySelectorAll(".svg_selector")
+            for(let i=1; i< html_elem.length; i++){
+                html_elem[i].setAttribute("display","none")
+                }
+        runHangman()
         }
         /*----------------
                Main

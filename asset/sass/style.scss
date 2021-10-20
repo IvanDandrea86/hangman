@@ -10,16 +10,17 @@ body {
     font-family: 'Noto Sans Mono', monospace;
     h1 {
         font-size: 3em;
-    }
-    .letters {
-        font-size: $normal-text;
-        margin: $small-margin;
+    } 
+    .letters{
+        font-size: $medium-text;
     }
 }
+
 /*--------
 Top Bar
 --------*/
 .top_bar {
+    height: 10vh;
     display: flex;
     justify-content: space-around;
     overflow: hidden;
@@ -45,7 +46,6 @@ Top Bar
         }
     }
 }
-
 #icon_logo {
     margin-top: $large-margin;
     margin-bottom: $large-margin;
@@ -60,6 +60,7 @@ Main Section
 ------------*/
 .container {
     display: flex;
+    
     justify-content: center;
     //Enter the game elements
     #enter_game {
@@ -83,7 +84,7 @@ Main Section
     #main_game {
         margin-left: 10px;
         margin-right: 10px;
-        margin-top: 25px;
+        margin-top: $medium-margin;
         height: 60%;
         width: 85%;
         display: none;
@@ -92,13 +93,13 @@ Main Section
             font-size: 36px;
         }
         #image_hangman {
+            
             border: 1px solid $secondary;
-            height :35vh;
+            height : 20vh;
             
             .hang {
-                
-                max-width: 100%;
-                max-height: 100%;
+                max-width: 80%;
+                max-height: 80%;
             }
         }
         #secret_word {
@@ -110,13 +111,12 @@ Main Section
             .sec_word {
                 margin-right: 0.5em;
                 border-bottom: 2px solid $secondary;
-                font-size:$big-text;
                 text-transform: uppercase;
                 color: $primary;
-            }
         }
+    }
         #keybord {
-            margin-top: 1em;
+            margin-top: $small-margin;
             display: inline-flex;
             justify-content: center;
             flex-wrap: wrap;

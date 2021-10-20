@@ -26,11 +26,13 @@ button {
 }
 
 #back {
-  font-size: 1.5em;
+  margin-top: 4.5px;
+  font-size: 1.25em;
 }
 
 #again {
-  font-size: 1.5em;
+  margin-top: 4.5px;
+  font-size: 1.25em;
 }
 
 /*--------
@@ -46,14 +48,14 @@ body h1 {
 }
 
 body .letters {
-  font-size: 2em;
-  margin: 2.5px;
+  font-size: 1.5em;
 }
 
 /*--------
 Top Bar
 --------*/
 .top_bar {
+  height: 10vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -142,7 +144,7 @@ Main Section
 .container #main_game {
   margin-left: 10px;
   margin-right: 10px;
-  margin-top: 25px;
+  margin-top: 3.5px;
   height: 60%;
   width: 85%;
   display: none;
@@ -155,12 +157,12 @@ Main Section
 
 .container #main_game #image_hangman {
   border: 1px solid #333;
-  height: 35vh;
+  height: 20vh;
 }
 
 .container #main_game #image_hangman .hang {
-  max-width: 100%;
-  max-height: 100%;
+  max-width: 80%;
+  max-height: 80%;
 }
 
 .container #main_game #secret_word {
@@ -178,13 +180,12 @@ Main Section
 .container #main_game #secret_word .sec_word {
   margin-right: 0.5em;
   border-bottom: 2px solid #333;
-  font-size: 3em;
   text-transform: uppercase;
   color: wheat;
 }
 
 .container #main_game #keybord {
-  margin-top: 1em;
+  margin-top: 2.5px;
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
   display: inline-flex;
