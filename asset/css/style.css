@@ -41,6 +41,30 @@ button {
   font-size: 1.5em;
 }
 
+#eye-right > * {
+  -webkit-animation: deadeye 2s infinite alternate;
+          animation: deadeye 2s infinite alternate;
+}
+
+#eye-left > * {
+  -webkit-animation: deadeye 2s infinite alternate;
+          animation: deadeye 2s infinite alternate;
+}
+
+@-webkit-keyframes deadeye {
+  to {
+    stroke: red;
+    stroke-width: 6;
+  }
+}
+
+@keyframes deadeye {
+  to {
+    stroke: red;
+    stroke-width: 6;
+  }
+}
+
 /*--------
   General
 --------*/

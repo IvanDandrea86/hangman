@@ -1,0 +1,15 @@
+#eye-right>*{
+    animation: deadeye 2s infinite alternate;
+
+}
+#eye-left>*{
+    animation: deadeye 2s infinite alternate;
+    
+}
+@keyframes deadeye {
+    to{
+        stroke :red;
+        stroke-width:6;
+    }
+    
+}
