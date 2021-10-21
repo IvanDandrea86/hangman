@@ -241,7 +241,7 @@ let checkBest=((best,new_score)=>{
             key.removeChild(key.lastElementChild);
         }
         html_elem=document.querySelectorAll(".svg_selector")
-        for(let i=1; i< html_elem.length; i++){
+        for(let i=0; i< html_elem.length; i++){
             html_elem[i].setAttribute("display","none")
             }
         parentNode.style.display = "none"
@@ -266,7 +266,7 @@ let checkBest=((best,new_score)=>{
                 key.removeChild(key.lastElementChild);
             }
             html_elem=document.querySelectorAll(".svg_selector")
-            for(let i=1; i< html_elem.length; i++){
+            for(let i=0; i< html_elem.length; i++){
                 html_elem[i].setAttribute("display","none")
                 }
 
