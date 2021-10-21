@@ -1,6 +1,7 @@
 (() => {
     const alpha = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
     const vocab = ["console", "javascript", "react", "quiz", "nobody", "asynchronous", "languages","fetch","mammamia","superhero","limitless","panda"]
+    const folder='words.json'
     /**
      * Generate rundom Item.
      * 
@@ -8,7 +9,12 @@
      * @return {String} - Randome Item from the given array 
      */
     const getRandomItem = arr => arr[Math.floor(Math.random() * arr.length)];
-   
+  
+    const getAlphaList=(url)=>{
+     fetch(url)
+     .then(response => response.json())
+     .then(data.console.log(data))
+    }
     /**
      * Generate random word and create nth span elment for each charachter
      * 
@@ -154,13 +160,14 @@ let showTheSecret = ((index) => {
     * @param {Numbers} new_score- word to be compaired
     * @return {Numbers} - returning the higher score between the two parametrs
     */
-let checkBest=((score,new_score)=>{
-    if (new_score >score){
+let checkBest=((best,new_score)=>{
+    if (new_score >best){
         window.localStorage.setItem("counter-best-score",new_score)
-        return new_score 
+        return new_score
+        
     }
-    window.localStorage.setItem("counter-best-score",score)
-    return score
+    return window.localStorage.getItem("counter-best-score")
+     
 })
 
     /** 
@@ -169,10 +176,12 @@ let checkBest=((score,new_score)=>{
     let runHangman = () => {
         
         var score=0
-        var count = 0
-        var w = 0
+        var try_count = 0
+        var win_counter = 0
         var result_tag=document.getElementById("try_result")
-        result_tag.innerHTML=count
+        var score_tag=document.getElementById("score_result")
+        var best_tag=document.getElementById("best_result")
+        result_tag.innerHTML=try_count
         console.log("It Works Hangman Started")
         createMain()
         const hang = generateRandomWord(vocab)
@@ -189,33 +198,38 @@ let checkBest=((score,new_score)=>{
                     if (len == 0) {
                         console.log("You lost one try")
                         let parent =document.querySelectorAll(".svg_selector")
-                        count = loseTray(parent,count)
-                        console.log("lost counter:", count)
-                       result_tag.innerHTML = count
-                        if (isLost(count)) {
+                        try_count = loseTray(parent,try_count)
+                        console.log("lost counter:", try_count)
+                       result_tag.innerHTML = try_count
+                        if (isLost(try_count)) {
                             youLost()
-                            document.getElementById("best_result").innerHTML= checkBest(score, best_score)
+                           best_tag.innerHTML=checkBest(best,score)
                             showTheSecret(hang.length)
                         }
-                    } else {
+                    } 
+                    else {
                         for (elem in found) {
                             getLetter(found[elem])
                             console.log("Congratulation you the letter" + found[elem])
                             document.getElementById("let-" + char).disabled = true;
-                            w++
-                            console.log("win counter:", w)
-                            if (isWin(w, (hang.length))) { 
+                            win_counter++
+                            score +=  1
+                            score_tag.innerHTML=score
+                            console.log("best:", best)
+                            console.log("scorecounter:", score)
+                            console.log(typeof( win_counter))
+                            console.log(typeof( score))
+                            if (isWin(win_counter, (hang.length))) { 
+                                best=checkBest(best,score)
+                                best_tag.innerHTML=best
+                                console.log("best:", best)
+                                console.log("scorecounter:", score)
                                 youWin() 
                             }
-                        }
-                        let t= result_tag.innerHTML
-                        score +=  ((len*5) -(t*0.5)) 
-                        document.getElementById("score_result").innerHTML = score
-                        document.getElementById("best_result").innerHTML= checkBest(score, best_score)
+                        }       
                     }
                 })
-        )
-    }
+        )}
     
     /** 
     * Reset Exit Function
@@ -240,6 +254,9 @@ let checkBest=((score,new_score)=>{
             html_elem[i].setAttribute("display","none")
             }
         parentNode.style.display = "none"
+        window.localStorage.clear("counter-best-score")
+        document.getElementById("best_result").innerHTML= 0
+
     }
     /** 
     * Play Again function
@@ -267,15 +284,18 @@ let checkBest=((score,new_score)=>{
                Main
         ----------------*/
 //Declare localStorage best score
-var best_score=window.localStorage.getItem("counter-best-score")
-document.getElementById("best_result").innerHTML=best_score
+var best =window.localStorage.getItem("counter-best-score")
+best=0
+document.getElementById("best_result").innerHTML=best
 //Enter the game button listener
 document.getElementById("start_button").addEventListener("click", () => {
+    getAlphaList(folder)
     runHangman()
     })
 //Reset game button listener
 document.getElementById("back").addEventListener("click", () => {
     resetGame()
+    
     console.log("restart")
     })
 //Play Again button listener    
@@ -283,5 +303,15 @@ document.getElementById("again").addEventListener("click", () => {
     again()
     console.log("again")
     })
+//Languages selector
+document.getElementById("lang").addEventListener('change', 
+    (event) => {
+    console.log(`You selected ${event.target.value}`)
+    // console.log(typeof($event.value))
+    // console.log('You selected: ', $event.value);
+    
+
+})
+
 })();
 

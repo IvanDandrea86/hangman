@@ -11,9 +11,7 @@ body {
     h1 {
         font-size: 3em;
     } 
-    .letters{
-        font-size: $medium-text;
-    }
+    
 }
 
 /*--------
@@ -32,8 +30,10 @@ Top Bar
         align-self: center;
     }
     .score_container {
+        align-self: center;
         padding: $small-padding;
-        margin: $small-margin;
+        margin-top: $large-margin;
+        margin-bottom: $large-margin;
         p {
             font-size: $small-text;
             display: inline-block;
@@ -79,6 +79,16 @@ Main Section
             margin-top: $medium-margin;
             margin-bottom: $large-margin;
         }
+        #settings{
+            margin-top: 1.25em;
+            align-self: center;
+            .option_list{
+                align-self: center;
+                border-radius: 12px;
+                background-color: $primary;
+                color: $secondary;
+            }
+        }
     }
     //Game elements
     #main_game {
@@ -105,14 +115,13 @@ Main Section
         #secret_word {
             display: flex;
             justify-content: center;
-            margin-top: 2em;
-            margin-left: 2em;
-            margin-right: 2em;
+            margin: 0.5em 1.5em 0.5em 1.5em;
             .sec_word {
                 margin-right: 0.5em;
                 border-bottom: 2px solid $secondary;
                 text-transform: uppercase;
                 color: $primary;
+                font-size:  $normal-text;
         }
     }
         #keybord {

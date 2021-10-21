@@ -9,7 +9,7 @@ button {
     font-family: 'Noto Sans Mono', monospace;
 }
 #start_button {
-    font-size: $normal-text;
+    font-size: $medium-text;
 }
 #back{
     margin-top:$large-margin;
@@ -20,4 +20,9 @@ button {
     margin-top:$large-margin;
 
     font-size: $medium-text - 0.25em;
+}
+.letters{
+    margin: $small-margin $medium-margin $small-margin 0px;
+    margin-right: $medium-margin;
+    font-size: $medium-text;
 }

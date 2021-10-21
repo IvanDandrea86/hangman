@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hangman v1.11 - The Game</title>
-    <link rel="shortcut icon" href="./asset/img/hmframes/hang_7.png">
+    <title>Hangman v1.12 - The Game</title>
+    <link rel="shortcut icon" href="./asset/img/hmframes/hang_1.svg">
 
     <link rel="stylesheet" href="./asset/css/style.css">
     <link rel="stylesheet" href="./asset/css/reset.css">
@@ -21,7 +21,7 @@
                 <div class="logo" id="icon_logo">
                     <a href="#"></a>
                 </div>
-                <p id="game_title">The Hangman v1.11</p>
+                <p id="game_title">The Hangman v1.12</p>
                 <div class="score_container">
                     <div id="try">
                         <p>Number or guess: </p><span id="try_result">0</span>
@@ -40,8 +40,15 @@
     <section class="container">
         <div class="container" id="enter_game">
             <h1 id="main_title">The Hangman</h1>
-            <h2>Try to chatch the word</h2>
+            <h2>Try to catch the word</h2>
             <button id="start_button">Star the game</button>
+            <div id="settings">
+                <label for="languages"><i class="fas fa-globe"></i></label>
+                <select class="option_list"name="languages" id="lang">
+                    <option value="en" selected >English</option>
+                    <option value="fr">Français</option>
+                  </select>
+            </div>
         </div>
     <!-- Main Game Section -->
         <div class="container" id="main_game">
@@ -97,5 +104,6 @@
         <a href="https://github.com/IvanDandrea86" target="_blank"><i class="fab fa-github"></i></a>
     </footer>
 <script src="./asset/js/script.js"></script>
+<script src="./asset/js/require.js"></script>
 </body>
 </html>
