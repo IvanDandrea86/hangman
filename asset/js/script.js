@@ -1,7 +1,7 @@
 (() => {
     const alpha = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
     const vocab = ["console", "javascript", "react", "quiz", "nobody", "asynchronous", "languages","fetch","mammamia","superhero","limitless","panda"]
-    const folder='words.json'
+    const folder='./asset/js/words.json'
     /**
      * Generate rundom Item.
      * 
@@ -13,7 +13,7 @@
     const getAlphaList=(url)=>{
      fetch(url)
      .then(response => response.json())
-     .then(data.console.log(data))
+     .then(data=>console.log(data))
     }
     /**
      * Generate random word and create nth span elment for each charachter
