@@ -1,6 +1,5 @@
 (() => {
     const alpha = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
-    const vocab = ["console", "javascript", "react", "quiz", "nobody", "asynchronous", "languages","fetch","mammamia","superhero","limitless","panda"]
     const folder='./asset/js/words.json'
     /**
      * Generate rundom Item.
@@ -10,31 +9,33 @@
      */
     const getRandomItem = arr => arr[Math.floor(Math.random() * arr.length)];
   
-    const getAlphaList=(url)=>{
-     fetch(url)
-     .then(response => response.json())
-     .then(data=>console.log(data))
-    }
+    
     /**
      * Generate random word and create nth span elment for each charachter
      * 
-     * @param {Array} word - Array of elements
+     * @param {Array} url - path of .json with all words list
      * @return {String} - random word
      */
-    let generateRandomWord = (word) => {
-        let secret = getRandomItem(word)
+    let generateRandomWord = ((url) => {
+        fetch(url)
+        .then(response => response.json())
+        .then((json)=> {
+        var secret = getRandomItem((json.data))
+        console.log(secret)
         console.log("Random Word Generated")
         secret_word = Array.from(secret)
-        for (elem in secret_word) {
+            for (elem in secret_word) {
             let head = document.getElementById("secret_word")
             let b = document.createElement("span")
             b.classList.add("sec_word")
             b.setAttribute("id", "secret-" + elem)
             b.innerHTML = secret[elem]
             head.appendChild(b)
-        }
+            }
         return secret
-    }
+        })
+        
+    })
     /** 
     * Generate Keyboard creating n buttons html element based on the alphabet lenght
     * 
@@ -133,6 +134,7 @@
     let youWin = () => {
         document.querySelector("#game_end_title h2").textContent = "YOU WIN"
         console.log("You win")
+       
     }
      /** 
     * Set and show the lose message
@@ -142,6 +144,7 @@
         keys.forEach(elem => elem.disabled = true)
         document.querySelector("#game_end_title h2").textContent = "YOU LOST";
         console.log("You Lost");
+        
     }
  /** 
     * Show secret frase wen u lost calling the getLetter() function
@@ -184,7 +187,7 @@ let checkBest=((best,new_score)=>{
         result_tag.innerHTML=try_count
         console.log("It Works Hangman Started")
         createMain()
-        const hang = generateRandomWord(vocab)
+        const hang = generateRandomWord(folder)
         console.log(hang)
         generateKeybord(alpha)
         Array.from(document.querySelectorAll("button.letters")).forEach(btn =>
@@ -289,7 +292,7 @@ best=0
 document.getElementById("best_result").innerHTML=best
 //Enter the game button listener
 document.getElementById("start_button").addEventListener("click", () => {
-    getAlphaList(folder)
+    
     runHangman()
     })
 //Reset game button listener
