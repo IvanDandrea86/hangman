@@ -16,12 +16,8 @@
      * @param {Array} url - path of .json with all words list
      * @return {String} - random word
      */
-    let generateRandomWord = ((url) => {
-        fetch(url)
-        .then(response => response.json())
-        .then((json)=> {
-        var secret = getRandomItem((json.data))
-        console.log(secret)
+      let generateRandomWord =(word) => {
+        secret = getRandomItem((word))
         console.log("Random Word Generated")
         secret_word = Array.from(secret)
             for (elem in secret_word) {
@@ -32,10 +28,10 @@
             b.innerHTML = secret[elem]
             head.appendChild(b)
             }
-        return secret
-        })
-        
-    })
+       return secret
+    }
+
+    
     /** 
     * Generate Keyboard creating n buttons html element based on the alphabet lenght
     * 
@@ -73,7 +69,7 @@
     */
     let loseTray = (html_elem,counter) => {
         counter++
-        console.log(html_elem)
+       
         html_elem[counter-1].removeAttribute("display")
         return counter 
     }
@@ -87,7 +83,6 @@
         index) => {
         let l = document.getElementById("secret-" + index)
         l.style.color = "#000"
-        console.log("Lettra" + index)
     })
      /** 
     * Check win condition pairing win_counter and  word_leght
@@ -121,7 +116,6 @@
     let find = ((elem, string) => {
         var results = [];
         var idx = string.indexOf(elem);
-        console.log("Ciao " + elem)
         while (idx != -1) {
             results.push(idx);
             idx = string.indexOf(elem, idx + 1);
@@ -176,7 +170,7 @@ let checkBest=((best,new_score)=>{
     /** 
     * Hangman main game 
     */
-    let runHangman = () => {
+    let runHangman = (word1) => {
         
         var score=0
         var try_count = 0
@@ -187,8 +181,8 @@ let checkBest=((best,new_score)=>{
         result_tag.innerHTML=try_count
         console.log("It Works Hangman Started")
         createMain()
-        const hang = generateRandomWord(folder)
-        console.log(hang)
+        var hang=generateRandomWord(word1)
+        
         generateKeybord(alpha)
         Array.from(document.querySelectorAll("button.letters")).forEach(btn =>
             btn.addEventListener(
@@ -202,7 +196,7 @@ let checkBest=((best,new_score)=>{
                         console.log("You lost one try")
                         let parent =document.querySelectorAll(".svg_selector")
                         try_count = loseTray(parent,try_count)
-                        console.log("lost counter:", try_count)
+                        console.log("Lost counter:", try_count)
                        result_tag.innerHTML = try_count
                         if (isLost(try_count)) {
                             youLost()
@@ -218,15 +212,9 @@ let checkBest=((best,new_score)=>{
                             win_counter++
                             score +=  1
                             score_tag.innerHTML=score
-                            console.log("best:", best)
-                            console.log("scorecounter:", score)
-                            console.log(typeof( win_counter))
-                            console.log(typeof( score))
                             if (isWin(win_counter, (hang.length))) { 
                                 best=checkBest(best,score)
                                 best_tag.innerHTML=best
-                                console.log("best:", best)
-                                console.log("scorecounter:", score)
                                 youWin() 
                             }
                         }       
@@ -238,7 +226,7 @@ let checkBest=((best,new_score)=>{
     * Reset Exit Function
     */
     let resetGame = () => {
-        console.log("exit")
+        console.log("Exit")
         document.getElementById("try_result").innerHTML = 0
         document.getElementById("score_result").innerHTML = 0
         document.getElementById("enter_game").removeAttribute("style")
@@ -265,7 +253,7 @@ let checkBest=((best,new_score)=>{
     * Play Again function
     */
     let again = () => {
-            console.log("again")
+            console.log("Play Again")
             document.getElementById("try_result").innerHTML = 0
             document.getElementById("score_result").innerHTML = 0
             const parentNode = document.getElementById("main_game")
@@ -281,7 +269,10 @@ let checkBest=((best,new_score)=>{
             for(let i=1; i< html_elem.length; i++){
                 html_elem[i].setAttribute("display","none")
                 }
-        runHangman()
+
+                fetch(folder)
+                .then(response=>response.json())
+                .then(data=>runHangman(data.data))
         }
         /*----------------
                Main
@@ -292,26 +283,25 @@ best=0
 document.getElementById("best_result").innerHTML=best
 //Enter the game button listener
 document.getElementById("start_button").addEventListener("click", () => {
-    
-    runHangman()
+    fetch(folder)
+    .then(response=>response.json())
+    .then(data=>runHangman(data.data))
     })
 //Reset game button listener
 document.getElementById("back").addEventListener("click", () => {
     resetGame()
-    
-    console.log("restart")
+    console.log("Restart")
     })
 //Play Again button listener    
 document.getElementById("again").addEventListener("click", () => {
     again()
-    console.log("again")
+    console.log("Again")
     })
 //Languages selector
 document.getElementById("lang").addEventListener('change', 
     (event) => {
     console.log(`You selected ${event.target.value}`)
-    // console.log(typeof($event.value))
-    // console.log('You selected: ', $event.value);
+  
     
 
 })
