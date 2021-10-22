@@ -1,7 +1,7 @@
 {
   "name": "hangman",
-  "version": "1.0.0",
-  "description": "",
+  "version": "1.13.0",
+  "description": "--- My version of the famous paper and pencil guessing game.",
   "main": "index.js",
   "dependencies": {
     "express": "^4.17.1"
