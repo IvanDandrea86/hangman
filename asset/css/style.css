@@ -1,0 +1,281 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+Mono:wght@500&display=swap");
+/*------
+Font size
+-------*/
+/*-------
+Margin & Padding
+--------*/
+button {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  margin-top: 20px;
+  text-transform: uppercase;
+  background-color: wheat;
+  border-radius: 5px;
+  -webkit-box-shadow: 1px 1px 1px 1px #333;
+          box-shadow: 1px 1px 1px 1px #333;
+  font-family: 'Noto Sans Mono', monospace;
+}
+
+#start_button {
+  font-size: 1.5em;
+}
+
+#back {
+  margin-top: 4.5px;
+  font-size: 1.25em;
+}
+
+#again {
+  margin-top: 4.5px;
+  font-size: 1.25em;
+}
+
+.letters {
+  margin: 2.5px 3.5px 2.5px 0px;
+  margin-right: 3.5px;
+  font-size: 1.5em;
+}
+
+#eye-right > * {
+  -webkit-animation: deadeye 2s infinite alternate;
+          animation: deadeye 2s infinite alternate;
+}
+
+#eye-left > * {
+  -webkit-animation: deadeye 2s infinite alternate;
+          animation: deadeye 2s infinite alternate;
+}
+
+@-webkit-keyframes deadeye {
+  to {
+    stroke: red;
+    stroke-width: 6;
+  }
+}
+
+@keyframes deadeye {
+  to {
+    stroke: red;
+    stroke-width: 6;
+  }
+}
+
+/*--------
+  General
+--------*/
+body {
+  background-color: wheat;
+  font-family: 'Noto Sans Mono', monospace;
+}
+
+body h1 {
+  font-size: 3em;
+}
+
+/*--------
+Top Bar
+--------*/
+.top_bar {
+  height: 10vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  overflow: hidden;
+  background-color: #333;
+}
+
+.top_bar p {
+  color: wheat;
+}
+
+.top_bar #game_title {
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+}
+
+.top_bar .score_container {
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  padding: 2.5px;
+  margin-top: 4.5px;
+  margin-bottom: 4.5px;
+}
+
+.top_bar .score_container p {
+  font-size: 1em;
+  display: inline-block;
+}
+
+.top_bar .score_container span {
+  margin-left: 4.5px;
+  display: inline-block;
+  color: wheat;
+  font-size: 1em;
+}
+
+#icon_logo {
+  margin-top: 4.5px;
+  margin-bottom: 4.5px;
+  border-radius: 60%;
+  width: 46px;
+  height: 46px;
+  border: 1px solid wheat;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+}
+
+/*-----------
+Main Section
+------------*/
+.container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.container #enter_game {
+  height: 60vh;
+  width: 80%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  text-align: center;
+}
+
+.container #enter_game h1 {
+  font-size: 3em;
+  margin-bottom: 3.5px;
+}
+
+.container #enter_game h2 {
+  font-style: italic;
+  font-size: 1.5em;
+  margin-top: 3.5px;
+  margin-bottom: 4.5px;
+}
+
+.container #enter_game #settings {
+  margin-top: 1.25em;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+}
+
+.container #enter_game #settings .option_list {
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  border-radius: 12px;
+  background-color: wheat;
+  color: #333;
+}
+
+.container #main_game {
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-top: 3.5px;
+  height: 60%;
+  width: 85%;
+  display: none;
+}
+
+.container #main_game #game_end_title {
+  margin: 12px;
+  font-size: 36px;
+}
+
+.container #main_game #image_hangman {
+  border: 1px solid #333;
+  height: 30vh;
+}
+
+.container #main_game #image_hangman .hang {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.container #main_game #secret_word {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin: 0.5em 1.5em 0.5em 1.5em;
+}
+
+.container #main_game #secret_word .sec_word {
+  margin-right: 0.5em;
+  border-bottom: 2px solid #333;
+  text-transform: uppercase;
+  color: wheat;
+  font-size: 2em;
+}
+
+.container #main_game #keybord {
+  margin-top: 2.5px;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.container #main_game #nav_container {
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  font-size: 1em;
+  padding-bottom: 4.5px;
+  padding-top: 2.5px;
+}
+
+/*-----------
+*Footer section
+------------*/
+.footer {
+  margin-top: 15px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-size: 18px;
+  text-align: center;
+}
+
+.footer p {
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  margin-right: 4.5px;
+}
+
+.footer .fab {
+  color: #333;
+  font-size: 2em;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+}
+/*# sourceMappingURL=style.css.map */

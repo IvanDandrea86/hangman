@@ -1,0 +1,163 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Mono:wght@500&display=swap');
+@import 'colors';
+@import 'variables';
+@import 'buttons';
+@import 'animation';
+
+/*--------
+  General
+--------*/
+body {
+    background-color: $primary;
+    font-family: 'Noto Sans Mono', monospace;
+    h1 {
+        font-size: 3em;
+    } 
+    
+}
+
+/*--------
+Top Bar
+--------*/
+.top_bar {
+    height: 10vh;
+    display: flex;
+    justify-content: space-around;
+    overflow: hidden;
+    background-color: $secondary;
+    p {
+        color: $primary;
+    }
+    #game_title {
+        align-self: center;
+    }
+    .score_container {
+        align-self: center;
+        padding: $small-padding;
+        margin-top: $large-margin;
+        margin-bottom: $large-margin;
+        p {
+            font-size: $small-text;
+            display: inline-block;
+        }
+        span {
+            margin-left: $large-margin;
+            display: inline-block;
+            color: $primary;
+            font-size: $small-text;
+        }
+    }
+}
+#icon_logo {
+    margin-top: $large-margin;
+    margin-bottom: $large-margin;
+    border-radius: 60%;
+    width: 46px;
+    height: 46px;
+    border: 1px solid $primary;
+    align-self: center;
+}
+/*-----------
+Main Section
+------------*/
+.container {
+    display: flex;
+    
+    justify-content: center;
+    //Enter the game elements
+    #enter_game {
+        height: 60vh;
+        width: 80%;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        h1{
+            font-size: $big-text;
+            margin-bottom: $medium-margin;
+        }
+        h2 {
+            font-style: italic;
+            font-size: $medium-text;
+            margin-top: $medium-margin;
+            margin-bottom: $large-margin;
+        }
+        #settings{
+            margin-top: 1.25em;
+            align-self: center;
+            .option_list{
+                align-self: center;
+                border-radius: 12px;
+                background-color: $primary;
+                color: $secondary;
+            }
+        }
+    }
+    //Game elements
+    #main_game {
+        margin-left: 10px;
+        margin-right: 10px;
+        margin-top: $medium-margin;
+        height: 60%;
+        width: 85%;
+        display: none;
+        #game_end_title {
+            margin: 12px;
+            font-size: 36px;
+        }
+        #image_hangman {
+            
+            border: 1px solid $secondary;
+            height : 30vh;
+            
+            .hang {
+                max-width: 100%;
+                max-height:100%;
+            }
+        }
+        #secret_word {
+            display: flex;
+            justify-content: center;
+            margin: 0.5em 1.5em 0.5em 1.5em;
+            .sec_word {
+                margin-right: 0.5em;
+                border-bottom: 2px solid $secondary;
+                text-transform: uppercase;
+                color: $primary;
+                font-size:  $normal-text;
+        }
+    }
+        #keybord {
+            margin-top: $small-margin;
+            display: inline-flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        #nav_container {
+            justify-content: space-around;
+            font-size: 1em;
+            padding-bottom: $large-padding;
+            padding-top:$small-padding;
+        }
+    }
+}
+/*-----------
+*Footer section
+------------*/
+.footer {
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+    font-size: 18px;
+    text-align: center;
+    p{
+    align-self: center;
+    margin-right: $large-padding;
+
+    }
+
+    .fab {
+    color: $secondary;
+    font-size: $normal-text;
+    align-self: center;
+    }
+}    

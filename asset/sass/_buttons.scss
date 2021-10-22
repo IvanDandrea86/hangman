@@ -1,0 +1,28 @@
+button {
+    width: fit-content;
+    align-self: center;
+    margin-top: 20px;
+    text-transform: uppercase;
+    background-color: $primary;
+    border-radius: 5px;
+    box-shadow: 1px 1px 1px 1px $secondary;
+    font-family: 'Noto Sans Mono', monospace;
+}
+#start_button {
+    font-size: $medium-text;
+}
+#back{
+    margin-top:$large-margin;
+    font-size: $medium-text - 0.25em;
+
+}
+#again{
+    margin-top:$large-margin;
+
+    font-size: $medium-text - 0.25em;
+}
+.letters{
+    margin: $small-margin $medium-margin $small-margin 0px;
+    margin-right: $medium-margin;
+    font-size: $medium-text;
+}
